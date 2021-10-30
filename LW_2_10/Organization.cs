@@ -16,5 +16,13 @@ namespace LW_2_10
             Name = name;
             City = locationCity;
         }
+
+        public virtual string Print()
+        {
+            string res = "";
+            res += "Organisation name: " + Name + "\n";
+            res += "Location city: " + City + "\n";
+            return res;
+        }
     }
 }

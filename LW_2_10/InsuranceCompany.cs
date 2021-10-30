@@ -26,5 +26,12 @@ namespace LW_2_10
         {
             NumberOfClients = numOfClients;
         }
+
+        public override string Print()
+        {
+            string res = base.Print();
+            res += $"Number of clients: {NumberOfClients}\n";
+            return res;
+        }
     }
 }

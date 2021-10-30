@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace LW_2_10
 {
@@ -6,7 +7,12 @@ namespace LW_2_10
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
+        }
+
+        static private void Task1()
+        {
+            List<object> someList = new();
         }
     }
 }

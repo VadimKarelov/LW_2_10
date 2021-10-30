@@ -26,5 +26,12 @@ namespace LW_2_10
         {
             ShipConstructed = 0;
         }
+
+        public override string Print()
+        {
+            string res = base.Print();
+            res += $"Number of constructed ships: {ShipConstructed}\n";
+            return res;
+        }
     }
 }

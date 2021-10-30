@@ -14,5 +14,12 @@ namespace LW_2_10
         {
             Production = production;
         }
+
+        public override string Print()
+        {
+            string res = base.Print();
+            res += $"Type of production: {Production}\n";
+            return res;
+        }
     }
 }

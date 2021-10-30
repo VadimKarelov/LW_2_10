@@ -25,5 +25,12 @@ namespace LW_2_10
         {
             NumberOfBooks = numOfBooks;
         }
+
+        public override string Print()
+        {
+            string res = base.Print();
+            res += $"Number of books: {NumberOfBooks}\n";
+            return res;
+        }
     }
 }
