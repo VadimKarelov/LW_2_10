@@ -8,19 +8,7 @@ namespace LW_2_10
 {
     class InsuranceCompany : Organization
     {
-        public int NumberOfClients
-        {
-            get
-            {
-                return NumberOfClients;
-            }
-            set
-            {
-                if (value < 0)
-                    throw new Exception("Number of clients must be positive");
-                NumberOfClients = value;
-            }
-        }
+        public int NumberOfClients { get; set; }
 
         public InsuranceCompany(string name, string locationCity, int numOfClients) : base(name, locationCity)
         {

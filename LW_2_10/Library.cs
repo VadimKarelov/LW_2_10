@@ -8,18 +8,7 @@ namespace LW_2_10
 {
     class Library : Organization
     {
-        public int NumberOfBooks
-        {
-            get
-            {
-                return NumberOfBooks;
-            }
-            set
-            {
-                if (value < 0)
-                    throw new Exception("Number of books must be positive");
-            }
-        }
+        public int NumberOfBooks { get; set; }
 
         public Library(string name, string locationCity, int numOfBooks) : base(name, locationCity)
         {
