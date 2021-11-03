@@ -15,6 +15,11 @@ namespace LW_2_10
             NumberOfClients = numOfClients;
         }
 
+        public InsuranceCompany(ref Random rn) : base(ref rn)
+        {
+            NumberOfClients = rn.Next(0, 100);
+        }
+
         public override string Print()
         {
             string res = base.Print();

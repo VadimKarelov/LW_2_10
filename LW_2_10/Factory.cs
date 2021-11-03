@@ -15,6 +15,12 @@ namespace LW_2_10
             Production = production;
         }
 
+        public Factory(ref Random rn) : base(ref rn)
+        {
+            string[] products = { "Phones", "Tables", "Chairs", "Lamps" };
+            Production = products[rn.Next(0, products.Length)];
+        }
+
         public override string Print()
         {
             string res = base.Print();

@@ -15,6 +15,11 @@ namespace LW_2_10
             NumberOfBooks = numOfBooks;
         }
 
+        public Library(ref Random rn) : base(ref rn)
+        {
+            NumberOfBooks = rn.Next(0, 1000);
+        }
+
         public override string Print()
         {
             string res = base.Print();

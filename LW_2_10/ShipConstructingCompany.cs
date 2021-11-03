@@ -15,6 +15,11 @@ namespace LW_2_10
             ShipConstructed = 0;
         }
 
+        public ShipConstructingCompany(ref Random rn) : base(ref rn)
+        {
+            ShipConstructed = rn.Next(0, 1000);
+        }
+
         public override string Print()
         {
             string res = base.Print();
