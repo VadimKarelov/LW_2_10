@@ -11,6 +11,7 @@ namespace LW_2_10
         {
             Task1();
             Task2();
+            Task3();
         }
 
         static private void PrintOrganizations(List<Organization> organizations)
@@ -52,16 +53,16 @@ namespace LW_2_10
             for (int i = 0; i < 5; i++)
                 someList.Add(new Library(ref rn));
 
-            Console.WriteLine("Cписок всех организаций");
+            Console.WriteLine("===Cписок всех организаций");
             PrintOrganizations(someList);
 
-            Console.WriteLine("Список организаций из Магадана");
+            Console.WriteLine("===Список организаций из Магадана");
             PrintOrganizations(Request1(someList));
 
-            Console.WriteLine("Список библиотек, где количество книг больше 50");
+            Console.WriteLine("===Список библиотек, где количество книг больше 50");
             PrintOrganizations(Request2(someList));
 
-            Console.WriteLine("Список заводов из Москвы");
+            Console.WriteLine("===Список заводов из Москвы");
             PrintOrganizations(Request3(someList));
         }
 
@@ -105,6 +106,30 @@ namespace LW_2_10
                 }
             }
             return res;
+        }
+
+        static private void Task3()
+        {
+            Console.WriteLine("Task 3");
+
+            List<Organization> someList = new();
+
+            for (int i = 0; i < 3; i++)
+                someList.Add(new Organization(ref rn));
+            for (int i = 0; i < 3; i++)
+                someList.Add(new ShipConstructingCompany(ref rn));
+            for (int i = 0; i < 3; i++)
+                someList.Add(new InsuranceCompany(ref rn));
+            for (int i = 0; i < 3; i++)
+                someList.Add(new Factory(ref rn));
+            for (int i = 0; i < 3; i++)
+                someList.Add(new Library(ref rn));
+
+            Console.WriteLine("Before sort");
+            PrintOrganizations(someList);
+            someList.Sort();
+            Console.WriteLine("After sort");
+            PrintOrganizations(someList);
         }
     }
 }

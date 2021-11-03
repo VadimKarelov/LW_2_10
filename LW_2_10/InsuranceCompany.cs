@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LW_2_10
 {
-    class InsuranceCompany : Organization
+    class InsuranceCompany : Organization, IComparable, IComparer, ICloneable
     {
         public int NumberOfClients { get; set; }
 
@@ -25,6 +26,32 @@ namespace LW_2_10
             string res = base.Print();
             res += $"Number of clients: {NumberOfClients}\n";
             return res;
+        }
+
+        public new int CompareTo(object obj)
+        {
+            if (obj == null) return 1;
+
+            var org = obj as InsuranceCompany;
+            if (org == null || org != null && this == org)
+                return 0;
+            else
+                return this.NumberOfClients.CompareTo(org.NumberOfClients);
+        }
+
+        public new int Compare(object x, object y)
+        {
+            if (x == y) return 0;
+
+            if (x is InsuranceCompany o1 && y is InsuranceCompany o2)
+                return o1.CompareTo(o2);
+            else
+                return 0;
+        }
+
+        public new object Clone()
+        {
+            return this;
         }
     }
 }
