@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LW_2_10
 {
-    class Organization : IComparable, IComparer, ICloneable
+    class Organization : IComparable, IComparer, ICloneable, IExecutable
     {
         public string Name { get; set; }
         public string City { get; set; }
@@ -57,7 +57,9 @@ namespace LW_2_10
 
         public object Clone()
         {
-            return this;
+            var res = (Organization)this.MemberwiseClone();
+            res.Name += " clone";
+            return res;
         }
     }
 }

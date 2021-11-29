@@ -7,25 +7,30 @@ using System.Threading.Tasks;
 
 namespace LW_2_10
 {
-    class Factory : Organization, IComparable, IComparer, ICloneable
+    class Factory : Organization, IComparable, IComparer, ICloneable, IExecutable
     {
         public string Production { get; set; }
+
+        public Organization HeadOrganization { get; set; }
 
         public Factory(string name, string locationCity, string production) : base(name, locationCity)
         {
             Production = production;
+            HeadOrganization = null;
         }
 
         public Factory(ref Random rn) : base(ref rn)
         {
             string[] products = { "Phones", "Tables", "Chairs", "Lamps" };
             Production = products[rn.Next(0, products.Length)];
+            HeadOrganization = null;
         }
 
         public override string Print()
         {
             string res = base.Print();
             res += $"Type of production: {Production}\n";
+            if (HeadOrganization != null) res += $"Head organisation: {HeadOrganization.Name}\n";
             return res;
         }
 
@@ -50,9 +55,19 @@ namespace LW_2_10
                 return 0;
         }
 
-        public new object Clone()
+        public new Factory Clone()
         {
-            return this;
+            Factory res = (Factory)this.MemberwiseClone();
+            res.Name += " clone";
+            return res;
+        }
+
+        public Factory DeepClone()
+        {
+            Factory res = (Factory)this.MemberwiseClone();
+            res.Name += " clone";
+            res.HeadOrganization = (Organization)HeadOrganization.Clone();
+            return res;
         }
     }
 }

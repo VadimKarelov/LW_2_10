@@ -10,7 +10,11 @@ namespace LW_2_10
         static void Main(string[] args)
         {
             Task1();
+            Console.ReadKey();
+            Console.Clear();
             Task2();
+            Console.ReadKey();
+            Console.Clear();
             Task3();
         }
 
@@ -22,9 +26,17 @@ namespace LW_2_10
             }
         }
 
+        static private void PrintOrganizations(List<IExecutable> organizations)
+        {
+            foreach (var org in organizations)
+            {
+                Console.WriteLine(org.Print());
+            }
+        }
+
         static private void Task1()
         {
-            Console.WriteLine("Task 1");
+            Console.WriteLine("//////////////////Task 1");
 
             List<Organization> someList = new();
             someList.Add(new Organization("Simple organization", "Magadan"));
@@ -38,7 +50,7 @@ namespace LW_2_10
 
         static private void Task2()
         {
-            Console.WriteLine("Task 2");
+            Console.WriteLine("//////////////////Task 2");
 
             List<Organization> someList = new();
 
@@ -110,9 +122,9 @@ namespace LW_2_10
 
         static private void Task3()
         {
-            Console.WriteLine("Task 3");
+            Console.WriteLine("//////////////////Task 3");
 
-            List<Organization> someList = new();
+            List<IExecutable> someList = new();
 
             for (int i = 0; i < 3; i++)
                 someList.Add(new Organization(ref rn));
@@ -125,11 +137,49 @@ namespace LW_2_10
             for (int i = 0; i < 3; i++)
                 someList.Add(new Library(ref rn));
 
-            Console.WriteLine("Before sort");
+            Console.WriteLine("===Before sort");
             PrintOrganizations(someList);
             someList.Sort();
-            Console.WriteLine("After sort");
+            Console.WriteLine("===After sort");
             PrintOrganizations(someList);
+
+            Console.WriteLine("Find organisation from Omsk");
+            Console.WriteLine((Array.Find(someList.ToArray(), x => ((Organization)x).City == "Omsk")).Print());
+
+            Console.WriteLine("===Copying");
+            Factory t1 = new Factory("Factory1", "Perm", "Product 1")
+            {
+                HeadOrganization = new Organization(ref rn)
+            };
+            Console.WriteLine("**Copy first factory to second");
+            Factory t2 = t1.Clone();
+
+            Console.WriteLine(t1.Print());
+            Console.WriteLine(t2.Print());
+
+            Console.WriteLine("**Changed all information in first factory");
+            t1.Name = "Factory 2";
+            t1.City = "Moscow";
+            t1.Production = "Product 2";
+            t1.HeadOrganization.Name = "New head org name";
+
+            Console.WriteLine(t1.Print());
+            Console.WriteLine(t2.Print());
+
+            Console.WriteLine("**Deep clone first factory to second");
+            t2 = t1.DeepClone();
+
+            Console.WriteLine(t1.Print());
+            Console.WriteLine(t2.Print());
+
+            Console.WriteLine("**Changed all information in first factory");
+            t1.Name = "Factory 3";
+            t1.City = "Vladivostok";
+            t1.Production = "Product 3";
+            t1.HeadOrganization.Name = "Another new head org name";
+
+            Console.WriteLine(t1.Print());
+            Console.WriteLine(t2.Print());
         }
     }
 }

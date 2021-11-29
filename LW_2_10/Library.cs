@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LW_2_10
 {
-    class Library : Organization, IComparable, IComparer, ICloneable
+    class Library : Organization, IComparable, IComparer, ICloneable, IExecutable
     {
         public int NumberOfBooks { get; set; }
 
@@ -51,7 +51,9 @@ namespace LW_2_10
 
         public new object Clone()
         {
-            return this;
+            var res = (Library)this.MemberwiseClone();
+            res.Name += " clone";
+            return res;
         }
     }
 }
