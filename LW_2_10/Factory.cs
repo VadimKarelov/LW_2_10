@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LW_2_10
 {
-    class Factory : Organization, IComparable, IComparer, ICloneable, IExecutable
+    class Factory : Organization, IComparable, ICloneable, IExecutable
     {
         public string Production { get; set; }
 
@@ -45,6 +45,7 @@ namespace LW_2_10
                 return this.Name.CompareTo(org.Name);
         }
 
+        /*
         public new int Compare(object x, object y)
         {
             if (x == y) return 0;
@@ -54,7 +55,10 @@ namespace LW_2_10
             else
                 return 0;
         }
+        */
 
+        // copy == clone
+        // shallow
         public new Factory Clone()
         {
             Factory res = (Factory)this.MemberwiseClone();
@@ -62,6 +66,7 @@ namespace LW_2_10
             return res;
         }
 
+        // deep
         public Factory DeepClone()
         {
             Factory res = (Factory)this.MemberwiseClone();

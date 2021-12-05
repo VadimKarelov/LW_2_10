@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LW_2_10
 {
-    class ShipConstructingCompany : Organization, IComparable, IComparer, ICloneable, IExecutable
+    class ShipConstructingCompany : Organization, IComparable, ICloneable, IExecutable
     {
         public int ShipConstructed { get; set; }
 
@@ -39,6 +39,7 @@ namespace LW_2_10
                 return this.ShipConstructed.CompareTo(org.ShipConstructed);
         }
 
+        /*
         public new int Compare(object x, object y)
         {
             if (x == y) return 0;
@@ -48,6 +49,7 @@ namespace LW_2_10
             else
                 return 0;
         }
+        */
 
         public new object Clone()
         {

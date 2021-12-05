@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LW_2_10
 {
-    class InsuranceCompany : Organization, IComparable, IComparer, ICloneable, IExecutable
+    class InsuranceCompany : Organization, IComparable, ICloneable, IExecutable
     {
         public int NumberOfClients { get; set; }
 
@@ -39,6 +39,7 @@ namespace LW_2_10
                 return this.NumberOfClients.CompareTo(org.NumberOfClients);
         }
 
+        /*
         public new int Compare(object x, object y)
         {
             if (x == y) return 0;
@@ -48,6 +49,7 @@ namespace LW_2_10
             else
                 return 0;
         }
+        */
 
         public new object Clone()
         {

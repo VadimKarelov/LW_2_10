@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace LW_2_10
 {
@@ -139,12 +140,14 @@ namespace LW_2_10
 
             Console.WriteLine("===Before sort");
             PrintOrganizations(someList);
-            someList.Sort();
+            IExecutable[] someArray = someList.ToArray();
+            Array.Sort(someArray, new Comparator());
+            someList = someArray.ToList();
             Console.WriteLine("===After sort");
             PrintOrganizations(someList);
 
-            Console.WriteLine("Find organisation from Omsk");
-            Console.WriteLine((Array.Find(someList.ToArray(), x => ((Organization)x).City == "Omsk")).Print());
+            Console.WriteLine("Find organisation with name Bravo");
+            Console.WriteLine(someArray[Array.BinarySearch(someArray, new Organization("Bravo", ""), new Comparator())].Print());
 
             Console.WriteLine("===Copying");
             Factory t1 = new Factory("Factory1", "Perm", "Product 1")
