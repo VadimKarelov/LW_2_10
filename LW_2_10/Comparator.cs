@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LW_2_10
 {
-    internal class Comparator : IComparer
+    public class Comparator : IComparer
     {
         public int Compare(object x, object y)
         {

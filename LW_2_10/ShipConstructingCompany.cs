@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LW_2_10
 {
-    class ShipConstructingCompany : Organization, IComparable, ICloneable, IExecutable
+    public class ShipConstructingCompany : Organization, IComparable, ICloneable, IExecutable
     {
         public int ShipConstructed { get; set; }
 

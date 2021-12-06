@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LW_2_10
 {
-    class Library : Organization, IComparable, ICloneable, IExecutable
+    public class Library : Organization, IComparable, ICloneable, IExecutable
     {
         public int NumberOfBooks { get; set; }
 

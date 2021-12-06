@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LW_2_10
 {
-    class InsuranceCompany : Organization, IComparable, ICloneable, IExecutable
+    public class InsuranceCompany : Organization, IComparable, ICloneable, IExecutable
     {
         public int NumberOfClients { get; set; }
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LW_2_10
 {
-    class Factory : Organization, IComparable, ICloneable, IExecutable
+    public class Factory : Organization, IComparable, ICloneable, IExecutable
     {
         public string Production { get; set; }
 
