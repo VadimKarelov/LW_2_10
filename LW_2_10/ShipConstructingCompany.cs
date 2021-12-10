@@ -33,7 +33,7 @@ namespace LW_2_10
             if (obj == null) return 1;
 
             var org = obj as ShipConstructingCompany;
-            if (org == null || org != null && this == org)
+            if (org == null)
                 return 0;
             else
                 return this.ShipConstructed.CompareTo(org.ShipConstructed);
